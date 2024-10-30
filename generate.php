@@ -50,6 +50,7 @@ $themeFile = "$THEMES_DIR/{$config['color_scheme']}.css";
 $globalStyles = file_get_contents("$THEMES_DIR/style.css") . "\n" . file_get_contents($themeFile);
 file_put_contents("$PUBLIC_DIR/style.css", $globalStyles);
 file_put_contents("$PUBLIC_DIR/favicon.svg", file_get_contents("favicon.svg"));
+file_put_contents("$PUBLIC_DIR/rss.svg", file_get_contents("rss.svg"));
 
 $posts = []; // Initialize an array to hold post data
 $allTags = [];

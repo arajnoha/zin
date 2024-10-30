@@ -61,11 +61,7 @@ To run this platform, you will need:
 
 - The script will create the necessary directories if they do not already exist.
 - Ensure that the file permissions are set correctly so the PHP script can write to the `public/` directory.
-
-## Future Enhancements
-
-- Consider adding support for more Markdown features.
-- Implement a simple admin interface for posting directly through a web form.
+- If brave enough, write via ssh on the server directly. If not, simply automate the upload of `public/` via ssh or sftp's put.
 
 ## License
 

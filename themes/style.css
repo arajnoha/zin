@@ -38,3 +38,11 @@ h3 {
     margin-top: 20px;
     padding-top: 10px;
 }
+footer {
+    margin: 50px auto 15px;
+    text-align: center;
+}
+footer a img {
+    width: 24px;
+    height: 24px;
+}
