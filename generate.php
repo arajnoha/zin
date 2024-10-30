@@ -130,4 +130,35 @@ foreach ($allTags as $tag => $links) {
     file_put_contents("$TAGS_DIR/$tag.html", $tagHtml);
 }
 
-echo "Site generated successfully!";
+// RSS Generation Function
+function generateRSS($posts, $config) {
+    $rssItems = "";
+    foreach ($posts as $post) {
+        $rssItems .= "
+            <item>
+                <title>{$post['title']}</title>
+                <link>{$config['site_url']}/posts/{$post['slug']}.html</link>
+                <pubDate>" . date(DATE_RSS, strtotime($post['date'])) . "</pubDate>
+                <description>{$post['title']}</description>
+            </item>";
+    }
+
+    $rssFeed = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
+    <rss version=\"2.0\">
+        <channel>
+            <title>{$config['site_name']}</title>
+            <link>{$config['site_url']}</link>
+            <description>{$config['site_description']}</description>
+            <language>en-us</language>
+            <lastBuildDate>" . date(DATE_RSS) . "</lastBuildDate>
+            $rssItems
+        </channel>
+    </rss>";
+
+    file_put_contents($GLOBALS['PUBLIC_DIR'] . "/rss.xml", $rssFeed);
+}
+
+// Call the function to generate RSS after post processing
+generateRSS($posts, $config);
+
+echo "Site and RSS feed generated successfully!";
