@@ -3,6 +3,8 @@
 This is a simple PHP blogging platform that allows you to write articles in plain Markdown files. The platform generates a static site with an archive, individual post pages and tag pages.
 It uses the Front Matter syntax to create the title, date, slug and tags.
 
+![Demo of Zin](demo.png)
+
 ## Features
 
 - Simple Markdown support (links, bold, italic, headings, lists, blockquotes, paragraphs, and horizontal lines).
@@ -23,8 +25,7 @@ To run this platform, you will need:
 
 1. **Setup the project:**
    - Clone the repository
-   - make articles in `/content` folder with `.md` extension
-   - run `php generate.php`
+   - run `php generate.php` (First run will create the folders, then it builds the blog)
 
 2. **Create Markdown files:**
    - Add your Markdown files to the `content/` directory. Each file should follow this structure:

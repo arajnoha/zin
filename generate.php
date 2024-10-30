@@ -51,7 +51,7 @@ $globalStyles = file_get_contents("$THEMES_DIR/style.css") . "\n" . file_get_con
 file_put_contents("$PUBLIC_DIR/style.css", $globalStyles);
 file_put_contents("$PUBLIC_DIR/favicon.svg", file_get_contents("favicon.svg"));
 
-$postsList = "";
+$posts = []; // Initialize an array to hold post data
 $allTags = [];
 $parsedown = new Parsedown();
 
@@ -94,10 +94,23 @@ foreach (glob("$CONTENT_DIR/*.md") as $file) {
 
         // Add new article into the archive
         file_put_contents("$POSTS_DIR/$slug.html", $postHtml);
-        $postsList .= "<li><a href='/posts/$slug.html'>$title</a> - $date</li>";
-        foreach ($tags as $tag) {
-            $allTags[$tag][] = "<li><a href='/posts/$slug.html'>$title</a> - $date</li>";
-        }
+
+        // Store post data for later sorting
+        $posts[] = ['title' => $title, 'date' => $date, 'slug' => $slug, 'tags' => $tags];
+    }
+}
+
+// Sort posts by date in descending order
+usort($posts, function($a, $b) {
+    return strtotime($b['date']) - strtotime($a['date']);
+});
+
+// Generate the posts list
+$postsList = "";
+foreach ($posts as $post) {
+    $postsList .= "<li><a href='/posts/{$post['slug']}.html'>{$post['title']}</a> - {$post['date']}</li>";
+    foreach ($post['tags'] as $tag) {
+        $allTags[$tag][] = "<li><a href='/posts/{$post['slug']}.html'>{$post['title']}</a> - {$post['date']}</li>";
     }
 }
 
