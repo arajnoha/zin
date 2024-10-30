@@ -45,16 +45,16 @@ To run this platform, you will need:
 
 5. **Set up the general blog info**
    - in the `config.md`, modify the details to your liking. There is also a theme specified. Current themes are: `desert`
-   - `site_lang` uses standardised 2-letter language specification (ISO 639-1)
+   - `site_lang` uses standardised 2-letter language specification (ISO 639-1)  
    ```markdown
-     ---
-      site_name: My Personal Blog
-      description: A blog about my life, thoughts, and projects.
-      color_scheme: desert
-      site_lang: en
-     ---
+   ---
+   site_name: Your blog's title
+   site_description: A blog about my life, thoughts, and projects.
+   color_scheme: desert
+   site_lang: en
+   site_url: url-for-the-rss-feed
+   ---
      ```
-
 
 
 ## Notes
