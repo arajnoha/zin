@@ -1,0 +1,19 @@
+body {
+    background: #FFF0D1;
+    color: #3B3030;
+}
+a {
+    color: #B17457;
+}
+header {
+    border-bottom: 1px solid #ccc;
+}
+h1,h2,h3,h4,h5,h6 {
+    color: #B17457;
+}
+.date {
+    color: #aaa;
+}
+.tags {
+    border-top: 1px solid #ccc;
+}
